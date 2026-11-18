@@ -26,7 +26,7 @@ st.markdown(
 st.sidebar.header("⚙️ Laptop 1 Connection Settings")
 api_url = st.sidebar.text_input(
     "Laptop 1 API Base URL",
-    value="http://127.0.0.1:8000",
+    value="http://10.8.120.105:8000",
     help="Enter http://<Laptop-1-IP>:8000 when running across two machines.",
 )
 
