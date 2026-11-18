@@ -1,6 +1,6 @@
 """
 Experiment 5: HistGradientBoosting (Gradient Boosting Model)
-Author / Owner: Team Member 4
+Author: Kshitij Satish Shetty (PES1UG24AM143)
 Algorithm Family: Boosting
 """
 

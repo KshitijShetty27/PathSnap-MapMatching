@@ -15,7 +15,11 @@ def generate_notebook():
 ## Review 1 Evaluation Notebook: EDA, Feature Engineering & Selection, 5-Model Comparison, and Bayesian Optimization
 **Course:** UE24CS352A — Machine Learning | Department of CSE, PES University  
 **Team Evaluation Phase:** Review 1 (Phase 1 Baseline & Model Selection)  
-**Authors:** Kshitij Shetty & Team (Team Member 1, Member 2, Member 3, Member 4)
+**Team Members:**  
+* **Kshitij Satish Shetty** — PES1UG24AM143  
+* **Krrish Singla** — PES1UG24AM141  
+* **Kota Videesha** — PES1UG24AM140  
+* **Kshama** — PES1UG24AM142  
 
 ---
 

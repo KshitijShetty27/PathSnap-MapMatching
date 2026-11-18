@@ -1,6 +1,6 @@
 """
 Experiment 1: Logistic Regression (Linear & Probabilistic Model)
-Author / Owner: Team Member 1
+Author: Krrish Singla (PES1UG24AM141)
 Algorithm Family: Linear & Probabilistic
 """
 

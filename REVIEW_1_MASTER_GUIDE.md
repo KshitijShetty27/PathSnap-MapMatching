@@ -259,25 +259,25 @@ Every team member must be able to defend the compulsory questions for each algor
 
 ## 9. Team Member Ownership & Viva Defense Scripts
 
-### Member 1: Data Engineering & Spatial Preprocessing
-* **Files Owned:** `src/data_loader.py`, `src/preprocessing.py`, `experiments/common.py`.
+### Kshitij Satish Shetty — PES1UG24AM143 (Pipeline, Boosting Model & Optuna Tuning)
+* **Files Owned:** `backend/app.py`, `models/model_5/train.py`, `hyperparameter_optimization/bayesian_optuna.py`.
 * **Viva Script:**
-  > *"I engineered the data ingestion and geometric coordinate transformations. Because spherical degrees distort Euclidean distances, I implemented equirectangular projection centered at median latitude to map coordinates to true meters. To solve the computational bottleneck of searching 165,000 road segments, I sampled segments at 20%, 50%, and 80% and constructed a `cKDTree`. This reduced spatial query latency from 35 seconds to **42 milliseconds per trip** with **98.25% candidate recall**."*
+  > *"I orchestrated the zero-leakage training and evaluation pipeline, implemented the winning **HistGradientBoosting** model with binned histograms (73.28% Top-1 acc, 0.1243 log loss, 0.019 ms latency), and conducted **Bayesian Hyperparameter Optimization via Optuna TPE** over 20 trials, finding regularized tree parameters that reached **93.97% CV accuracy**."*
 
-### Member 2: Linear Baseline & Decision Tree
-* **Files Owned:** `experiments/train_model1_logistic_regression.py`, `experiments/train_model3_decision_tree.py`.
+### Krrish Singla — PES1UG24AM141 (EDA, Data Loading & Coordinate Geometry)
+* **Files Owned:** `data/data_loader.py`, `models/model_1/train.py`.
 * **Viva Script:**
-  > *"I implemented the baseline linear and tree models. **Logistic Regression** gave 71.42% accuracy and 0.7911 Macro F1; it provides calibrated probabilities but underfits non-linear spatial interactions. To capture non-linear thresholds, I implemented a **Decision Tree** constrained to `max_depth=12` and `min_samples_split=10`, which improved Macro F1 to **0.8091** by learning orthogonal decision boundaries on distance and speed."*
+  > *"I owned the exploratory data analysis across the 80 training trips, verified the 0-NaN integrity and nominal 1.0 Hz sampling rate, and formulated the equirectangular projection to convert WGS84 angular degrees into local metric meters. I also benchmarked our baseline **Logistic Regression** model (71.42% accuracy)."*
 
-### Member 3: KNN & Random Forest Ensemble
-* **Files Owned:** `experiments/train_model2_knn.py`, `experiments/train_model4_random_forest.py`.
+### Kota Videesha — PES1UG24AM140 (Spatial Indexing, Feature Selection & Decision Tree)
+* **Files Owned:** `preprocessing/preprocessing.py`, `feature_engineering/features.py`, `models/model_3/train.py`.
 * **Viva Script:**
-  > *"I developed the instance-based and ensemble bagging architectures. **KNN ($k=9$)** with distance weighting achieved 69.00% accuracy, but suffered from high query latency (2.5 ms/obs). I then developed a **Random Forest of 80 decorrelated decision trees** with `max_features='sqrt'`. By averaging predictions across bootstrap samples, Random Forest mitigated individual tree variance and pushed Top-1 accuracy to **73.03%** and Macro F1 to **0.8192**."*
+  > *"I developed the 3-point arc discretization and `cKDTree` spatial index (42 ms query, 98.25% candidate recall) and engineered our 9 features, evaluating Pearson correlation with target Y. I also trained and evaluated the **Decision Tree** model (70.62% accuracy, 0.8091 Macro F1)."*
 
-### Member 4: Boosting, Bayesian Optimization & HMM
-* **Files Owned:** `experiments/train_model5_boosting.py`, `src/bayesian.py`, `src/hmm.py`.
+### Kshama — PES1UG24AM142 (KNN, Random Forest Ensemble & HMM Viterbi)
+* **Files Owned:** `models/model_2/train.py`, `models/model_4/train.py`, `hmm_viterbi/hmm_decoder.py`.
 * **Viva Script:**
-  > *"I developed the winning **HistGradientBoosting** model, which achieved 73.28% Top-1 accuracy and 0.8202 Macro F1. I conducted **Bayesian Hyperparameter Optimization via Optuna** over 12 trials, tuning tree depth, leaf nodes, learning rate, and L2 regularization (4.134), achieving **93.97% CV accuracy**. Furthermore, I introduced the **Hidden Markov Model with Viterbi decoding**, enforcing road network graph adjacency to jump route continuity from **88.4% to 99.3%**."*
+  > *"I implemented the instance-based and ensemble bagging architectures. I benchmarked **KNN (k=9)** and developed the **Random Forest of 80 decorrelated decision trees** (73.03% Top-1 accuracy, 88.52% continuity). Furthermore, I implemented the **HMM Viterbi decoder** enforcing road network graph adjacency to jump route continuity from 87.6% to **98.86%** across all evaluator trips."*
 
 ---
 

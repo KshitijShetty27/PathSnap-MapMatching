@@ -1,6 +1,6 @@
 """
 Experiment 2: K-Nearest Neighbors (Instance-Based Model)
-Author / Owner: Team Member 2
+Author: Kshama (PES1UG24AM142)
 Algorithm Family: Instance-Based Learning
 """
 

@@ -1,6 +1,6 @@
 """
 Experiment 3: Decision Tree (Tree-Based Model)
-Author / Owner: Team Member 2 / 3
+Author: Kota Videesha (PES1UG24AM140)
 Algorithm Family: Tree-Based Learning
 """
 

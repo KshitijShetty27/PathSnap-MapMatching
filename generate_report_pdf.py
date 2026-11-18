@@ -172,7 +172,7 @@ def build_pdf_report():
 
     meta_data = [
         [Paragraph("<b>Course:</b> UE24CS352A Machine Learning", body_style), Paragraph("<b>Department:</b> Computer Science & Engineering", body_style)],
-        [Paragraph("<b>Institution:</b> PES University (RR Campus)", body_style), Paragraph("<b>Authors:</b> Kshitij Shetty & Team", body_style)],
+        [Paragraph("<b>Institution:</b> PES University (RR Campus)", body_style), Paragraph("<b>Team Members & SRN:</b><br/>• Kshitij Satish Shetty — PES1UG24AM143<br/>• Krrish Singla — PES1UG24AM141<br/>• Kota Videesha — PES1UG24AM140<br/>• Kshama — PES1UG24AM142", body_style)],
         [Paragraph("<b>Architecture:</b> 2-Laptop Distributed (FastAPI + Streamlit)", body_style), Paragraph("<b>Winning Architecture:</b> Tuned HistGradientBoosting + HMM Viterbi", body_style)],
     ]
     meta_table = Table(meta_data, colWidths=[250, 250])

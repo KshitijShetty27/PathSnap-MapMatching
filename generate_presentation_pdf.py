@@ -140,7 +140,7 @@ def build_pdf():
 
     # Title block
     story.append(Paragraph("PathSnap: Review 1 Presentation Guide", title_style))
-    story.append(Paragraph("<b>UE24CS352A — Machine Learning</b> | Department of CSE, PES University<br/><b>Topic:</b> Distributed Map-Matching, Feature Selection, 5-Model Comparison & Live Defense", subtitle_style))
+    story.append(Paragraph("<b>UE24CS352A — Machine Learning</b> | Department of CSE, PES University<br/><b>Team:</b> Kshitij Satish Shetty (PES1UG24AM143) | Krrish Singla (PES1UG24AM141) | Kota Videesha (PES1UG24AM140) | Kshama (PES1UG24AM142)", subtitle_style))
     story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor("#1A365D"), spaceAfter=12))
 
     # Section 1: Live Demo & Screenshot Breakdown
@@ -258,24 +258,24 @@ def build_pdf():
     # Section 4: Individual Team Member Ownership & Script
     story.append(Paragraph("4. Individual Team Member Defense Scripts", h1_style))
     team_data = [
-        [Paragraph("<b>Member</b>", body_style), Paragraph("<b>Assigned Module</b>", body_style), Paragraph("<b>Opening Pitch to Recite</b>", body_style)],
+        [Paragraph("<b>Member & SRN</b>", body_style), Paragraph("<b>Assigned Module</b>", body_style), Paragraph("<b>Opening Pitch to Recite</b>", body_style)],
         [
-            Paragraph("<b>Member 1 (Kshitij)</b>", body_style),
+            Paragraph("<b>Kshitij Satish Shetty</b><br/>PES1UG24AM143", body_style),
             Paragraph("Pipeline, Boosting Model & Bayesian Tuning", body_style),
             Paragraph("<i>'I orchestrated the zero-leakage training pipeline, implemented HistGradientBoosting with binned histograms, and conducted Bayesian optimization with Optuna TPE over 20 trials, finding regularized tree parameters that reached 93.97% CV accuracy.'</i>", body_style)
         ],
         [
-            Paragraph("<b>Member 2</b>", body_style),
+            Paragraph("<b>Krrish Singla</b><br/>PES1UG24AM141", body_style),
             Paragraph("EDA & Coordinate Projection", body_style),
             Paragraph("<i>'I owned the exploratory data analysis across 80 training trips, verified the 1.0 Hz nominal sampling rate, and formulated the equirectangular projection to convert WGS84 angular degrees into local metric meters.'</i>", body_style)
         ],
         [
-            Paragraph("<b>Member 3</b>", body_style),
+            Paragraph("<b>Kota Videesha</b><br/>PES1UG24AM140", body_style),
             Paragraph("Spatial Index & Feature Selection", body_style),
             Paragraph("<i>'I developed the 3-point arc discretization and cKDTree index (42 ms query, 98.25% recall) and engineered our 9 features, analyzing Pearson correlation with target Y.'</i>", body_style)
         ],
         [
-            Paragraph("<b>Member 4</b>", body_style),
+            Paragraph("<b>Kshama</b><br/>PES1UG24AM142", body_style),
             Paragraph("Model Comparison & Baselines", body_style),
             Paragraph("<i>'I benchmarked Logistic Regression, KNN, Decision Tree, and Random Forest against HistGradientBoosting across all student test trips on accuracy, continuity, F1, log loss, and latency.'</i>", body_style)
         ]
