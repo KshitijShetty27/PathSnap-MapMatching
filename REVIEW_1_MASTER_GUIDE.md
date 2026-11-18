@@ -4,7 +4,7 @@
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 1. [Executive Summary & Problem Statement](#1-executive-summary--problem-statement)
 2. [Exploratory Data Analysis (EDA) & Data Integrity](#2-exploratory-data-analysis-eda--data-integrity)
 3. [Spatial Indexing & Candidate Generation](#3-spatial-indexing--candidate-generation)

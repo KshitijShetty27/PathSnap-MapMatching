@@ -50,7 +50,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Default data path for evaluation trips (student_test)
+# Data paths for evaluation trips (evaluator_test and student_test)
+EVALUATOR_TEST_DIR = os.path.join(
+    os.path.dirname(BASE_DIR), "Student folder", "Student folder", "evaluator_test"
+)
 STUDENT_TEST_DIR = os.path.join(
     os.path.dirname(BASE_DIR), "Student folder", "Student folder", "student_test"
 )
@@ -91,10 +94,14 @@ def health_check():
 
 @app.get("/trips")
 def list_available_trips():
-    """Lists the 10 reserved evaluation trips available on the server."""
-    if not os.path.exists(STUDENT_TEST_DIR):
-        raise HTTPException(status_code=404, detail="Student test directory not found")
-    trips = sorted([d for d in os.listdir(STUDENT_TEST_DIR) if os.path.isdir(os.path.join(STUDENT_TEST_DIR, d))])
+    """Lists evaluation trips available on the server (evaluator trips prioritized)."""
+    trips = []
+    if os.path.exists(EVALUATOR_TEST_DIR):
+        trips.extend(sorted([d for d in os.listdir(EVALUATOR_TEST_DIR) if os.path.isdir(os.path.join(EVALUATOR_TEST_DIR, d))]))
+    if os.path.exists(STUDENT_TEST_DIR):
+        for d in sorted([d for d in os.listdir(STUDENT_TEST_DIR) if os.path.isdir(os.path.join(STUDENT_TEST_DIR, d))]):
+            if d not in trips:
+                trips.append(d)
     return {"available_trips": trips, "count": len(trips)}
 
 
@@ -111,9 +118,11 @@ def evaluate_trip_endpoint(req: EvaluationRequest):
         logger.error("Inference rejected: Model artifact not loaded.")
         raise HTTPException(status_code=500, detail="Model artifact is not loaded on server.")
 
-    trip_path = os.path.join(STUDENT_TEST_DIR, trip_id)
+    trip_path = os.path.join(EVALUATOR_TEST_DIR, trip_id)
     if not os.path.exists(trip_path):
-        logger.error(f"Trip path not found: {trip_path}")
+        trip_path = os.path.join(STUDENT_TEST_DIR, trip_id)
+    if not os.path.exists(trip_path):
+        logger.error(f"Trip path not found for: {trip_id}")
         raise HTTPException(status_code=404, detail=f"Trip ID '{trip_id}' not found in reserved evaluation dataset.")
 
     # 1. Load trip data

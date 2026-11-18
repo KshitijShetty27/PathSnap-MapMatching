@@ -42,10 +42,11 @@ try:
 except Exception:
     st.sidebar.error("🔴 Cannot reach Laptop 1 API. Ensure Laptop 1 has api/app.py running.")
 
-# Fetch available trips
+# Fetch available trips (prioritizing the 10 reserved evaluator trips)
 trips_list = [
-    "00000000", "00000007", "00000009", "00000040", "00000052",
-    "00000056", "00000065", "00000076", "00000077", "00000091"
+    "00000015", "00000017", "00000023", "00000030", "00000049",
+    "00000059", "00000067", "00000073", "00000087", "00000094",
+    "00000000", "00000007", "00000009", "00000040", "00000052"
 ]
 if api_online:
     try:
