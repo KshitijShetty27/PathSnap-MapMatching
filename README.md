@@ -38,47 +38,54 @@ PathSnap uses a decoupled client-server architecture designed for a two-laptop e
 ## Project Structure
 
 ```
-PathSnap_Project/
-├── api/
-│   └── app.py                     # FastAPI REST server (Laptop 1)
-├── ui/
-│   └── app.py                     # Streamlit Evaluation Dashboard (Laptop 2)
-├── src/
-│   ├── __init__.py
-│   ├── data_loader.py             # Loads .track, .nodes, .arcs, .route; metric projection
-│   ├── preprocessing.py          # Spatial indexing, candidate generation & feature extraction
-│   ├── models.py                  # 5 distinct ML models across 5 algorithm families
-│   ├── bayesian.py                # Optuna Bayesian hyperparameter optimization
-│   ├── hmm.py                     # HMM & Viterbi sequential route decoding
-│   ├── evaluation.py              # Top-1 accuracy, route continuity, sequence recovery
-│   └── visualizer.py              # Folium interactive maps and static report plots
-├── experiments/
-│   ├── common.py                  # Shared data caching utility for experiments
-│   ├── train_model1_logistic_regression.py # Model 1: Logistic Regression
-│   ├── train_model2_knn.py        # Model 2: K-Nearest Neighbors
-│   ├── train_model3_decision_tree.py # Model 3: Decision Tree
-│   ├── train_model4_random_forest.py # Model 4: Random Forest
-│   └── train_model5_boosting.py   # Model 5: HistGradientBoosting
-├── artifacts/
-│   ├── best_model.joblib          # Trained Bayesian-tuned model weights
-│   ├── model_comparison.csv       # Benchmark results across 5 algorithm families
-│   ├── bayesian_trials.csv        # Optimization trial history from Optuna
-│   ├── tuned_vs_untuned.csv       # Comparison before and after Bayesian tuning
-│   ├── hmm_evaluation.csv         # Classifier-only vs Classifier + HMM metrics
+PathSnap/
+├── data/
+│   └── data_loader.py             # Loads .track, .nodes, .arcs, .route; metric projection
+├── preprocessing/
+│   └── preprocessing.py          # Arc discretization & cKDTree spatial retrieval
+├── feature_engineering/
+│   └── features.py               # 9 geometric and kinematic motion features
+├── models/
+│   ├── model_1/                  # Model 1: Logistic Regression
+│   │   └── train.py
+│   ├── model_2/                  # Model 2: K-Nearest Neighbors
+│   │   └── train.py
+│   ├── model_3/                  # Model 3: Decision Tree
+│   │   └── train.py
+│   ├── model_4/                  # Model 4: Random Forest
+│   │   └── train.py
+│   ├── model_5/                  # Model 5: HistGradientBoosting (Selected)
+│   │   └── train.py
+│   └── models.py                 # Candidate models definition
+├── evaluation/
+│   └── evaluation.py             # Accuracy, continuity, Macro F1, log loss, and latency
+├── hyperparameter_optimization/
+│   └── bayesian_optuna.py        # Optuna TPE Bayesian hyperparameter optimization
+├── hmm_viterbi/
+│   └── hmm_decoder.py            # HMM transition matrices & Viterbi route decoding
+├── backend/
+│   └── app.py                    # FastAPI model & evaluation server (Laptop 1)
+├── frontend/
+│   └── app.py                    # Streamlit evaluation dashboard (Laptop 2)
+├── visualizations/
+│   ├── visualizer.py             # Folium HTML map generator & plotting routines
+│   └── folium_trip_00000000.html # Multi-layer interactive trajectory map
+├── results/
+│   ├── best_model.joblib         # Trained Bayesian-tuned model weights
+│   ├── model_comparison.csv      # 5-model benchmark scorecard
+│   ├── bayesian_trials.csv       # Optuna optimization trial history
+│   ├── tuned_vs_untuned.csv      # Before vs after hyperparameter tuning
+│   ├── hmm_evaluation.csv        # Classifier-only vs HMM decoding metrics
 │   ├── evaluator_test_results.csv # Metrics across all 10 reserved evaluator trips
-│   ├── folium_trip_00000000.html  # Interactive multi-layer Folium map
-│   ├── model_comparison.png       # Comparison bar chart across 5 models
-│   ├── hmm_improvement.png        # Bar chart showing HMM continuity boost
-│   └── route_reconstruction_00000000.png # High-res trajectory reconstruction plot
+│   ├── model_comparison.png      # 4-panel multi-metric model comparison plot
+│   ├── hmm_improvement.png       # Route continuity improvement bar chart
+│   ├── route_reconstruction_00000000.png # Snapped trajectory visualization
+│   ├── cmd_api_response.jpg      # Live CMD terminal response screenshot
+│   └── ui_evaluator_dashboard.jpg # Live Streamlit UI evaluator screenshot
 ├── report/
-│   └── PathSnap_Technical_Report.pdf # 8-page Technical Report (PDF)
-├── Review_1_Notebook.ipynb        # Master Review 1 notebook with all outputs
-├── test_evaluator_set.py          # Evaluator test verification script
-├── run_pipeline.py                # Master training & evaluation pipeline
-├── generate_report_pdf.py         # PDF report generator script
-├── start_laptop_1.bat             # Batch launcher for Laptop 1 backend
-├── requirements.txt               # Dependencies
-└── README.md                      # Documentation
+│   └── PathSnap_Technical_Report.pdf # Consolidated 7-section Technical Report (PDF)
+├── requirements.txt
+└── README.md
 ```
 
 ---

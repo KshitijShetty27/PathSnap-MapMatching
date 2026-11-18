@@ -1,4 +1,5 @@
 @echo off
+cd /d "%~dp0"
 title PathSnap Backend - Laptop 1 (Model Server)
 echo ==============================================================
 echo          PATHSNAP: LAPTOP 1 BACKEND (MODEL & API SERVER)

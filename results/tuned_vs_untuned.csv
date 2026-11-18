@@ -1,0 +1,3 @@
+Model Version,Top-1 Accuracy (%),Route Continuity (%),Macro F1,Log Loss,Inference Latency (ms)
+Untuned HistGradientBoosting (Default),73.28,88.19,0.8202,0.1243,0.435
+Tuned HistGradientBoosting (Bayesian Opt),73.41,88.41,0.8218,0.1239,0.445
