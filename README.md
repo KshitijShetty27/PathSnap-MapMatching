@@ -2,13 +2,7 @@
 
 **Course:** UE24CS352A — Machine Learning  
 **Department of Computer Science and Engineering, PES University**  
-**Team Members:** Kshitij Shetty - PES1UG24AM143
-
-                  Krrish Singla - PES1UG24AM141
-                  
-                  Kshama - PES1UG24AM142
-                  
-                  Kota Videesha - PES1UG24AM140
+**Team Members:** Kshitij Shetty - PES1UG24AM143 | Krrish Singla - PES1UG24AM141 | Kshama - PES1UG24AM142 | Kota Videesha - PES1UG24AM140
 
 PathSnap is an end-to-end distributed machine learning system that reconstructs true vehicle trajectories by matching noisy GPS telemetry observations to road network graphs.
 
