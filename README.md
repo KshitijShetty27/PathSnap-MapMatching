@@ -1,7 +1,7 @@
 # PathSnap: Distributed Map-Matching & Route Reconstruction
 
 **Course:** UE24CS352A — Machine Learning  
-**Department of Computer Science and Engineering, PES University**  
+**Department of Computer Science and Engineering (AI/ML), PES University**  
 **Team Members:**  
 * **Kshitij Satish Shetty** — PES1UG24AM143  
 * **Krrish Singla** — PES1UG24AM141  
