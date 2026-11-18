@@ -1,0 +1,6 @@
+Model Name,Algorithm Family,Key Configuration,CV Macro F1,Student-Test Top-1 Acc (%),Route Continuity (%),Student-Test Macro F1,Log Loss,Inference Time (ms/obs),Training Time (s)
+Logistic_Regression,Linear & Probabilistic,L2-regularized logistic regression with standard feature scaling,0.9016,71.42,87.39,0.7911,0.1426,0.007,1.28
+K_Nearest_Neighbors,Instance-Based,Distance-weighted KNN with Euclidean metric on scaled features,1.0,69.0,84.93,0.7962,0.2224,2.496,1.84
+Decision_Tree,Tree-Based,Binary decision tree with depth pruning to limit overfitting,0.9292,70.62,85.92,0.8091,0.1734,0.002,8.27
+Random_Forest,Ensemble (Bagging),Bagged ensemble of 80 decorrelated decision trees,0.9478,73.03,88.52,0.8192,0.1254,0.222,63.03
+Hist_Gradient_Boosting,Boosting,Histogram-based gradient boosted decision trees with native multi-threading,0.9181,73.28,88.19,0.8202,0.1243,0.019,10.38

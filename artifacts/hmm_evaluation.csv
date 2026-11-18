@@ -1,0 +1,3 @@
+Decoding Strategy,Observation Top-1 Acc (%),Route Continuity (%),Sequence Recovery Jaccard (%)
+Classifier-Only (Independent Top-1),73.41,88.41,N/A (Discontinuous)
+Classifier + HMM (Viterbi Global Decoding),76.25,99.48,79.19%
